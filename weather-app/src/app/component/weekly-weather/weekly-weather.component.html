@@ -1,0 +1,7 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let weather of dailyWeather">
+      {{weather.summary}}
+    </mat-grid-tile>
+</mat-grid-list>
+<i class="wi wi-day-sunny"></i>
