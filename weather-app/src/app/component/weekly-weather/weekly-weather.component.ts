@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather-services.service';
 import { GeoCoord } from 'src/app/models/geo-coord';
-import { Weather } from 'src/app/models/weather';
-import { WeatherData } from 'src/app/models/weather-data';
+import { WeeklyWeather } from 'src/app/models/weather';
+import { WeatherDailyData } from 'src/app/models/weather-data';
+import { Observable, interval, Subscription, Observer } from 'rxjs';
+import { switchMap, startWith } from 'rxjs/operators';
 
 
 @Component({
@@ -12,15 +14,15 @@ import { WeatherData } from 'src/app/models/weather-data';
 })
 export class WeeklyWeatherComponent implements OnInit {
 
-  constructor( private weatherService: WeatherService ) { }
+  constructor( ) { }
 
-  dailyWeather : WeatherData[]
+  @Input() weeklyWeather: Observable<WeeklyWeather>
+  
+  public dailyWeathersData: WeatherDailyData[]
   ngOnInit() {
-    this.weatherService.getWeeklyWeather( new GeoCoord( 47.497913, 19.040236 ) )
-    .subscribe( res=>
-      console.log(res)
-      //this.dailyWeather = res.weatherDatas
-      )
-    console.log(this.dailyWeather)
+    this.weeklyWeather.subscribe( (res : WeeklyWeather)=>{
+      this.dailyWeathersData = res.weatherDatas.splice(1,6)
+    })
   }
+
 }

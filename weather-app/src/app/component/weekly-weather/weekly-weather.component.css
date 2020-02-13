@@ -1,6 +1,13 @@
-.mat-list-icon {
-    color: rgba(0, 0, 0, 0.54);
+
+  mat-list.list-horizontal {
+    padding: 0;
+    float: bottom;
+    width:100%
   }
-  .mat-list-item {
-    float: right;
-  }
+
+  mat-list-item.list-horizontal {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    background-color: darkcyan;
+}
