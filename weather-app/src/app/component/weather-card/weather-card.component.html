@@ -1,11 +1,8 @@
-<span [ngClass]="{
-    'mini':mini}">
-    <span class="weather">
-        <span class="temp">
+
+<span class="weather">
+    <span class="temp">
         {{temperature}}<sup>&deg;</sup>
         <span class="unit">c</span>
     </span>
-    <i class="wi wi-night-sleet"></i>
-    <span class="day">{{getWeekDay()}}</span>
-    </span>
+    <weather-icon class="icon" [icon]="icon"></weather-icon>
 </span>

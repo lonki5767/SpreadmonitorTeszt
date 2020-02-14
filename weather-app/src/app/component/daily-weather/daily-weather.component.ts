@@ -31,13 +31,10 @@ export class DailyWeatherComponent implements OnInit {
     return this.getCurrentHour() ? this.getCurrentHour().temperature : 0
   }
 
-  getCurrentHourDay() : number {
-    if( this.getCurrentHour() ){
-      console.log(this.getCurrentHour().time.getDay())
-      return this.getCurrentHour().time.getDay()
-    } else{
-      return 0
-    }
+  getCurrentHourIcon(): string{
+    return this.getCurrentHour() ? this.getCurrentHour().icon : ""
   }
-
+  
 }
+
+

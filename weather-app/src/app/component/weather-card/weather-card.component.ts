@@ -10,21 +10,9 @@ export class WeatherCardComponent implements OnInit {
 
   constructor() { }
 
-  @Input() day : number
-  @Input() mini : boolean
+  @Input() icon: string
   @Input() temperature: number
-  weekday= [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ]
-  getWeekDay():string{
-    return this.weekday[this.day]
-  }
+
   ngOnInit() {
     //this.getWeekDay()
   }

@@ -1,6 +1,5 @@
 <mat-list class="list-horizontal">
     <mat-list-item class="list-horizontal" *ngFor="let weatherData of dailyWeathersData">
-        <weather-card class="fill" [mini]="true" [day]= "weatherData.time.getDay()" [temperature]= "weatherData.minTemperature" ></weather-card>  
+        <mini-daily-weather-card class="fill" [day]= "weatherData.time.getDay()" [temperature]= "weatherData.minTemperature" [icon]= "weatherData.icon" ></mini-daily-weather-card>  
     </mat-list-item>
 </mat-list>
-
